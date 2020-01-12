@@ -6,3 +6,5 @@ print(2 ** 65536)
 
 answer = 2 ** 65536
 print(answer)
+
+# js console.log returned infinity
