@@ -19,7 +19,7 @@ f.closed
 # sure that it contains what you expect it to contain
 
 # YOUR CODE HERE
-f = open("bar.txt", "w+")
+f = open("src/bar.txt", "w+")
 f.write("Mr. and Mrs. Dursley, of number four, Privet Drive, \nwere proud to say that they were perfectly normal, \nthank you very much.")
 f.close()
 
