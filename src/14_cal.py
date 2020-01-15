@@ -21,21 +21,49 @@ and does the following:
 
 import sys
 import calendar
+# from datetime import datetime
+
+# args = len(sys.argv)
+# print(len(sys.argv))
+# x = input('''Please use the following format: '14_cal.py [month] [year]'.''')
+# if args == 1:
+#     month = datetime.today().month
+#     year = datetime.today().year
+# elif args == 2:
+#     month = int(sys.argv[1])
+#     year = datetime.now().year
+# elif args == 3:
+#     month = int(sys.argv[1])
+#     year = int(sys.argv[2])
+# else:
+#     print('''Please use the following format: '14_cal.py [month] [year]'.''')
+
+# print(calendar.TextCalendar().formatmonth(year, month))
+
+# decided to try out "try" and "except"
+
 from datetime import datetime
 
-args = len(sys.argv)
-print(len(sys.argv))
-x = input('''Please use the following format: '14_cal.py [month] [year]'.''')
-if args == 1:
-    month = datetime.today().month
-    year = datetime.today().year
-elif args == 2:
-    month = int(sys.argv[1])
-    year = datetime.now().year
-elif args == 3:
-    month = int(sys.argv[1])
-    year = int(sys.argv[2])
-else:
-    print('''Please use the following format: '14_cal.py [month] [year]'.''')
+cur_year = datetime.now().year
+cur_month = datetime.now().month
 
-print(calendar.TextCalendar().formatmonth(year, month))
+if len(sys.argv) == 3:
+    month = sys.argv[1]
+    year = sys.argv[2]
+    try:
+        print(calendar.TextCalendar().formatmonth(int(month), int(year)))
+    except:
+        sys.exit('''Invalid input: please use numbers 1-12 for month and a four digit numeric year''')
+elif len(sys.argv) == 2:
+    month = sys.argv[1]
+    try:
+        print(calendar.TextCalendar().formatmonth(cur_year, int(month)))
+    except:
+        sys.exit('''Invalid input: please use numbers 1-12 for month''')
+elif len(sys.argv) == 1:
+    try:
+        print(calendar.TextCalendar().formatmonth(cur_year, cur_month))
+    except:
+        sys.exit('''Please try again.''')
+else:
+    sys.exit('''Please use the following format: '14_cal.py [month] [year]'.''')
