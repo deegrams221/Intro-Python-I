@@ -1,7 +1,7 @@
 """
-Python exposes a terse and intuitive syntax for performing 
+Python exposes a terse and intuitive syntax for performing
 slicing on lists and strings. This makes it easy to reference
-only a portion of a list or string. 
+only a portion of a list or string.
 
 This Stack Overflow answer provides a brief but thorough
 overview: https://stackoverflow.com/a/509295
@@ -27,11 +27,11 @@ print('Solution 4:', a[2:4])
 print('Solution 5:', a[1:])
 
 # Output every element except the last one: [2, 4, 1, 7, 9]
-print('Solution 6:', a[0:len(a)-1])
+print('Solution 6:', a[:-1])
 
 # For string s...
 
 s = "Hello, world!"
 
 # Output just the 8th-12th characters: "world"
-print('Solution 7:', s[7:len(s)-1])
+print('Solution 7:', s[7:-1])
